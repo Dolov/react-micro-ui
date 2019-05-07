@@ -1,6 +1,7 @@
+import { IConfig } from 'umi-types';
 
 // ref: https://umijs.org/config/
-export default {
+const config: IConfig =  {
   treeShaking: true,
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
@@ -23,3 +24,5 @@ export default {
     }],
   ],
 }
+
+export default config;
