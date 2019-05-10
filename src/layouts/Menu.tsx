@@ -10,7 +10,7 @@ export default ({routes}) => {
   return (
     <Menu>
       {renderRoutes.map((route: any) => (
-        <Menu.Item><Link to={route.path}>{route.name}</Link></Menu.Item>
+        <Menu.Item key={route.path}><Link to={route.path}>{route.name}</Link></Menu.Item>
       ))}
     </Menu>
   )

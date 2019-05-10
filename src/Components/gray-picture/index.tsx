@@ -1,6 +1,5 @@
 import React from 'react'
 import cls from 'classnames'
-import style from './index.css'
 
 interface Props {
   src: string;
@@ -8,11 +7,12 @@ interface Props {
   [propName: string]: any;
 }
 
+const clsPrefix = 'micro-gray-picture'
 
 export default (props: Props) => {
   const { src, color, className, ...otherProps } = props
 
   return (
-    <img src={src} className={cls(className, {[style.gray]: !color})} {...otherProps} />
+    <img src={src} className={cls(className, {[clsPrefix]: !color})} {...otherProps} />
   )
 }
