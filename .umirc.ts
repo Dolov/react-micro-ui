@@ -23,6 +23,15 @@ const config: IConfig =  {
       },
     }],
   ],
+  routes: [
+    { path: '/', component: '../layouts/index',
+      routes: [
+        { path: '/', component: './index' },
+        { path: '/colorpicture', name: 'ColorPicture', component: './ColorPicture' },
+        
+      ]
+    },
+  ]
 }
 
 export default config;
