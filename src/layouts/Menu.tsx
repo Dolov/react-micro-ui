@@ -6,7 +6,7 @@ import Link from 'umi/link';
 
 
 export default ({routes}) => {
-  const renderRoutes = routes.filter((route: any) => route.path && route.path !== '/')
+  const renderRoutes = routes.filter((route: any) => route.name)
   return (
     <Menu>
       {renderRoutes.map((route: any) => (
