@@ -3,6 +3,7 @@ import { Icon } from 'antd'
 import Menu from './Menu'
 import Link from 'umi/link'
 import S from './index.less'
+import Content from '@/Components/Content'
 
 const BasicLayout: React.FC = props => {
   const { route: {routes} } = props
@@ -18,7 +19,7 @@ const BasicLayout: React.FC = props => {
       </h1>
       <div className={S.main}>
         <div className={S.menu}><Menu routes={routes} /></div>
-        <div className={S.children}>{props.children}</div>
+        <div className={S.children}><Content>{props.children}</Content></div>
       </div>
     </div>
   );

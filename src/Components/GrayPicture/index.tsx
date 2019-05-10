@@ -1,6 +1,6 @@
 import React from 'react'
 import cls from 'classnames'
-import S from './index.css'
+import style from './index.css'
 
 interface Props {
   src: string;
@@ -13,6 +13,6 @@ export default (props: Props) => {
   const { src, color, className, ...otherProps } = props
 
   return (
-    <img src={src} className={cls(className, {[S.gray]: !color})} {...otherProps} />
+    <img src={src} className={cls(className, {[style.gray]: !color})} {...otherProps} />
   )
 }

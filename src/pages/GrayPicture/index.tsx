@@ -17,11 +17,14 @@ export default class extends React.PureComponent {
   render() {
     const { color } = this.state
     return (
-      <GrayPicture 
-        src="http://media.shisongyan.top/image/girl.jpeg" 
-        color={color}
-        onClick={this.change}
-      />
+      <div>
+        <GrayPicture 
+          src="http://media.shisongyan.top/image/girl.jpeg" 
+          color={color}
+          onClick={this.change}
+          style={{maxWidth:'100%'}}
+        />
+      </div>
     )
   }
 }
