@@ -32,9 +32,9 @@ const config: IConfig =  {
     { path: '/', component: '../layouts/index',
       routes: [
         { path: '/', component: './index' },
-        { path: '/content', name: 'Content', component: './Content' },
-        { path: '/graypicture', name: 'GrayPicture', component: './GrayPicture' },
-        { path: '/suctionheader', name: 'SuctionHeader', component: './SuctionHeader' },
+        { path: '/content', name: 'Content', useContent: true, component: './Content' },
+        { path: '/graypicture', name: 'GrayPicture', useContent: true, component: './GrayPicture' },
+        { path: '/suctionheader', name: 'SuctionHeader', useContent: false, component: './SuctionHeader' },
         
       ]
     },
