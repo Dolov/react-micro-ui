@@ -32,7 +32,7 @@ const config: IConfig =  {
     { path: '/', component: '../layouts/index',
       routes: [
         { path: '/', component: './index' },
-        { path: '/colorpicture', name: 'ColorPicture', component: './ColorPicture' },
+        { path: '/colorpicture', name: 'GrayPicture', component: './ColorPicture' },
         
       ]
     },
