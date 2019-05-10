@@ -3,9 +3,11 @@ import { IConfig } from 'umi-types';
 // ref: https://umijs.org/config/
 const config: IConfig =  {
   treeShaking: true,
-  exportStatic: {
-    dynamicRoot: true,
-  },
+  history: 'hash',
+  publicPath: './',
+  // exportStatic: {
+  //   dynamicRoot: true,
+  // },
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
     ['umi-plugin-react', {
