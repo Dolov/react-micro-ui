@@ -33,6 +33,8 @@ const config: IConfig =  {
       routes: [
         { path: '/', useContent: true, component: './index' },
         { path: '/content', name: 'Content', useContent: true, component: './Content' },
+        { path: '/location', name: 'Location', useContent: true, component: './Location' },
+        { path: '/download', name: 'Download', useContent: true, component: './Download' },
         { path: '/graypicture', name: 'GrayPicture', useContent: true, component: './GrayPicture' },
         { path: '/suctionheader', name: 'SuctionHeader', useContent: false, component: './SuctionHeader' },
         { path: '/rotatewrapper', name: 'RotateWrapper', useContent: true, component: './RotateWrapper' },
