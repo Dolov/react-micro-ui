@@ -35,6 +35,7 @@ const config: IConfig =  {
         { path: '/content', name: 'Content', useContent: true, component: './Content' },
         { path: '/graypicture', name: 'GrayPicture', useContent: true, component: './GrayPicture' },
         { path: '/suctionheader', name: 'SuctionHeader', useContent: false, component: './SuctionHeader' },
+        { path: '/rotatewrapper', name: 'RotateWrapper', useContent: true, component: './RotateWrapper' },
         
       ]
     },

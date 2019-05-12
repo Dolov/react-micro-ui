@@ -1,0 +1,28 @@
+
+
+@cls-prefix: micro-ui-rotate-wrapper;
+
+
+:global {
+  .@{cls-prefix} :local {
+    display: inline-block;
+    animation: myRotate 3s infinite linear;
+  }
+
+  .@{cls-prefix}.stop {
+    animation-play-state: paused;
+  }
+
+  
+  
+}
+
+
+@keyframes myRotate {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
