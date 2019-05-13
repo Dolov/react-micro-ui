@@ -1,12 +1,14 @@
 import React from 'react'
-
+import Location from '@/Components/Location'
 
 export default class Index extends React.PureComponent {
 
   render() {
 
     return (
-      <div>开发中</div>
+      <div>
+        <Location />
+      </div>
     )
   }
 }
