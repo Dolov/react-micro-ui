@@ -32,6 +32,7 @@ const config: IConfig =  {
     { path: '/', component: '../layouts/index',
       routes: [
         { path: '/', useContent: true, component: './index' },
+        { path: '/tag', name: 'Tag', useContent: true, component: './Tag' },
         { path: '/content', name: 'Content', useContent: true, component: './Content' },
         { path: '/location', name: 'Location', useContent: true, component: './Location' },
         { path: '/download', name: 'Download', useContent: true, component: './Download' },

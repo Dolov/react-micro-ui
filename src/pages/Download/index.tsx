@@ -1,4 +1,5 @@
 import React from 'react'
+import DownLoad from '@/Components/Download'
 
 
 export default class Index extends React.PureComponent {
@@ -6,7 +7,7 @@ export default class Index extends React.PureComponent {
   render() {
 
     return (
-      <div>开发中</div>
+      <DownLoad src="http://example.shisongyan.top/rc-org-chart/layouts__index.async.js" />
     )
   }
 }
