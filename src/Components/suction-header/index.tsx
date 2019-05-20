@@ -16,6 +16,8 @@ export default class SuctionHeader extends React.PureComponent<Props> {
 
   headRef: any = null
 
+  childrenRef: any = null
+
   state = {
     height: null,
     margin: defaultMargin,
@@ -25,14 +27,20 @@ export default class SuctionHeader extends React.PureComponent<Props> {
 
   onScroll = (e: any) => {
     const { offsetHeight } = this.headRef
+    const { offsetHeight: childrenEleHeight } = this.childrenRef
+    const { scrollTop, offsetHeight: scrollEleHeight } = e.target
+    const { perfectHeight } = this.props
     if (!this.initHeight) {
       this.initHeight = offsetHeight
     }
-    const { scrollTop } = e.target
-    const { perfectHeight, onReach, onLeave } = this.props
+    // 防止抖动
+    if (childrenEleHeight < scrollEleHeight + this.initHeight) {
+      this.childrenRef.style.height = (childrenEleHeight + this.initHeight) + 'px'
+    }
+    
+    
     const distance = this.initHeight - scrollTop
     const height = distance > perfectHeight ? distance : perfectHeight
-    
     const margin = this.calcMargin(scrollTop)
     this.setState({
       height,
@@ -49,7 +57,7 @@ export default class SuctionHeader extends React.PureComponent<Props> {
       return 0
     } else {
       const res = ((perfectHeight - scrollTop) / perfectHeight) * defaultMargin
-      return Math.floor(res)
+      return res
     }
   }
 
@@ -62,7 +70,9 @@ export default class SuctionHeader extends React.PureComponent<Props> {
           <div ref={el => {this.headRef=el}} style={{height, overflow:'hidden'}}>{header}</div>
         </div>
         <div className={`${clsPrefix}-body`} onScroll={this.onScroll}>
-          <div className={`${clsPrefix}-children`}>{children}</div>
+          <div className={`${clsPrefix}-children`}>
+            <div ref={node => {this.childrenRef=node}}>{children}</div>
+          </div>
         </div>
       </div>
     )
