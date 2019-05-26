@@ -7,7 +7,7 @@ export default class Index extends React.PureComponent {
   render() {
 
     return (
-      <DownLoad src="http://example.shisongyan.top/rc-org-chart/layouts__index.async.js" />
+      <div>待开发</div>
     )
   }
 }
