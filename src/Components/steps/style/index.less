@@ -1,0 +1,46 @@
+
+@cls-prefix: micro-steps;
+
+:global {
+
+  .@{cls-prefix} {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0 32px;
+    .center {
+      border-radius: 50%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .step {
+      flex: 1;
+      position: relative;
+      .dot {
+        width: 24px;
+        height: 24px;
+        background: white;
+        .center;
+        > div {
+          width: 12px;
+          height: 12px;
+          background: #1890ff;
+          .center;
+        }
+      }
+      .tail {
+        width: 100%;
+        height: 2px;
+        background: #1890ff;
+      }
+      .title {
+        position: absolute;
+        left: 50%;
+        top: 8px;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}
