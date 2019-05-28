@@ -4,6 +4,7 @@ import cls from 'classnames'
 const clsPrefix = 'micro-steps'
 
 interface StepsProps {
+  style?: any;
   children: StepProps;
   className?: string;
 }
@@ -40,9 +41,9 @@ class Steps extends PureComponent<StepsProps> {
   }
 
   render() {
-    const { className } = this.props
+    const { className, ...otherProps } = this.props
     return (
-      <div className={cls(clsPrefix,className)}>
+      <div className={cls(clsPrefix,className)} {...otherProps}>
         {this.renderStep()}
       </div>
     )
