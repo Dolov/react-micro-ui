@@ -2,8 +2,6 @@ import React from 'react'
 import { Upload, Icon } from 'antd'
 import { TesseractWorker } from 'tesseract.js'
 
-const worker = new TesseractWorker()
-
 interface Props {
   lang?: Array<string> | string;
   onChange: Function;
@@ -29,6 +27,7 @@ export default class ImageToText extends React.PureComponent<Props> {
     const { uid, status, originFileObj } = file
     const language = Array.isArray(lang) ? lang.join("+"): lang
     if (status === 'done') {
+      const worker = new TesseractWorker()
       worker.recognize(originFileObj, language)
         .progress((message: any) => {
           this.imgData[uid] = message
