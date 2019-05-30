@@ -31,7 +31,7 @@ export default class index extends React.PureComponent {
           if (!status) {
             return <div style={style} key={index}>{text}</div>
           }
-          return <div style={style} key={index}>{status}: {progress}</div>
+          return <div style={style} key={index}>{status}: {progress*100}%</div>
         })}
       </div>
     )
