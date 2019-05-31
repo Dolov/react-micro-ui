@@ -6,6 +6,7 @@ const clsPrefix = 'micro-copy'
 interface Props {
   label?: any;
   content: string;
+  [propName: string]: any;
 }
 
 export default class Copy extends React.PureComponent<Props> {
@@ -31,9 +32,9 @@ export default class Copy extends React.PureComponent<Props> {
   textarea: any = null
 
   render() {
-    const { label, content } = this.props
+    const { label, content, ...otherProps } = this.props
     return (
-      <div className={clsPrefix}>
+      <div className={clsPrefix} {...otherProps}>
         <textarea value={content} ref={node => {this.textarea=node}} />
         <span onClick={this.copy}>{label}</span>
       </div>
