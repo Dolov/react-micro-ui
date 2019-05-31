@@ -3,7 +3,7 @@ import ImageToText from '@/Components/image-to-text'
 
 
 const style ={
-  marginTop: 32,
+  marginTop: 16,
   padding: 16,
   background: 'rgba(0, 0, 0, 0.03)',
 }
