@@ -4,6 +4,7 @@ import { IConfig } from 'umi-types';
 const config: IConfig =  {
   treeShaking: true,
   history: 'hash',
+  hash: true,
   publicPath: './',
   // exportStatic: {
   //   dynamicRoot: true,
@@ -33,6 +34,7 @@ const config: IConfig =  {
       routes: [
         { path: '/', useContent: true, component: './index' },
         { path: '/tag', name: 'Tag', useContent: true, component: './Tag' },
+        { path: '/copy', name: 'Copy', useContent: true, component: './Copy' },
         { path: '/steps', name: 'Steps', useContent: true, component: './Steps' },
         { path: '/button', name: 'Button', useContent: true, component: './Button' },
         { path: '/content', name: 'Content', useContent: true, component: './Content' },
