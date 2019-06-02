@@ -36,6 +36,7 @@ const config: IConfig =  {
         { path: '/tag', name: 'Tag', useContent: true, component: './Tag' },
         { path: '/copy', name: 'Copy', useContent: true, component: './Copy' },
         { path: '/steps', name: 'Steps', useContent: true, component: './Steps' },
+        { path: '/modal', name: 'Modal', useContent: true, component: './Modal' },
         { path: '/button', name: 'Button', useContent: true, component: './Button' },
         { path: '/content', name: 'Content', useContent: true, component: './Content' },
         { path: '/location', name: 'Location', useContent: true, component: './Location' },
