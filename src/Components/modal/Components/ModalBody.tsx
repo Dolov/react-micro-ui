@@ -44,7 +44,6 @@ export default class ModalBody extends React.PureComponent<Props> {
     } else {
       height = `${height} - ${nextSiblingHeight + previousSiblingHeight + paddingWidth + offset}px`
     }
-    
     const { height: prevHeight } = this.state
     if (prevHeight === height) return
     this.setState({
@@ -56,13 +55,25 @@ export default class ModalBody extends React.PureComponent<Props> {
 
   render() {
     const { height } = this.state
-    const { children } = this.props
-    const style = {
-      overflow: 'auto',
-      maxHeight:`calc(${height})`,
+    const { children, isFull } = this.props
+    const style: {
+      overflow: string;
+      height?: string;
+      maxHeight?: string;
+    } = { overflow: 'auto' }
+    if (isFull) {
+      style.height = `calc(${height})`
+    } else {
+      style.maxHeight = `calc(${height})`
     }
     return (
-      <div ref={ele => {this.element=ele}} style={style}>{children}</div>
+      <div 
+        ref={ele => {this.element=ele}} 
+        style={style}
+        className="body-main"
+      >
+        {children}
+      </div>
     )
   }
 }

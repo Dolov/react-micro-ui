@@ -38,28 +38,11 @@ export default class index extends Component {
           onCancel={this.onCancel}
           visible={visible}
         >
-          <h1>测试高度</h1>
-          <h1>测试高度</h1>
-          <h1>测试高度</h1>
-          <h1>测试高度</h1>
-          <h1>测试高度</h1>
-          <h1>测试高度</h1>
-          <h1>测试高度</h1>
-          <h1>测试高度</h1>
-          <h1>测试高度</h1>
-          <h1>测试高度</h1>
-          <h1>测试高度</h1>
-          <h1>测试高度</h1>
-          <h1>测试高度</h1>
-          <h1>测试高度</h1>
-          <h1>测试高度</h1>
-          <h1>测试高度</h1>
-          <h1>测试高度</h1>
-          <h1>测试高度</h1>
-          <h1>测试高度</h1>
-          <h1>测试高度</h1>
-          <h1>测试高度</h1>
-          <h1>测试高度</h1>
+          <h3>该组件基于 antd Modal</h3>
+          <h3>在此基础上增加了全屏、拖拽、超出滚动、指定 Header 颜色等功能, 默认开启</h3>
+          <h3>全屏: fullable</h3>
+          <h3>拖拽: dragable</h3>
+          
         </Modal>
       </div>
     )

@@ -60,14 +60,11 @@ export default class Modal extends React.PureComponent<Props> {
 
   modalInstance: any = null
 
-  modalBodyInstance: any = null
-
   render() {
     const { isFull } = this.state
     const { className, fullable=true, title, headerColor, children, ...otherProps } = this.props
     return (
       <AntdModal 
-      destroyOnClose
         centered
         ref={instance => {this.modalInstance=instance}}
         title={(
