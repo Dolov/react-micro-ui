@@ -4,6 +4,7 @@ import { Modal as AntdModal } from 'antd'
 import cls from 'classnames'
 import ModalBody from './Components/ModalBody'
 import Title from './Components/Title'
+import { fail } from 'assert';
 
 
 
@@ -31,12 +32,13 @@ export default class Modal extends React.PureComponent<Props> {
     const { isFull } = this.state
     this.setState({
       isFull: !isFull,
-    }, this.setClass)
+    }, () => {
+      this.setClass(!isFull)
+    })
   }
 
-  setClass = () => {
+  setClass = (isFull: boolean) => {
     if (!this.modalInstance) return 
-    const { isFull } = this.state
     const modalElement = ReactDOM.findDOMNode(this.modalInstance)
     const targetElement = modalElement.querySelector(".ant-modal-content")
     if (!targetElement) return 
@@ -45,6 +47,15 @@ export default class Modal extends React.PureComponent<Props> {
     } else {
       targetElement.classList.remove("fullscreen")
     }
+  }
+
+  onCancel = () => {
+    const { onCancel } = this.props
+    const { isFull } = this.state
+    if (isFull) {
+      this.setFull()
+    }
+    onCancel()
   }
 
   modalInstance: any = null
@@ -56,6 +67,7 @@ export default class Modal extends React.PureComponent<Props> {
     const { className, fullable=true, title, headerColor, children, ...otherProps } = this.props
     return (
       <AntdModal 
+      destroyOnClose
         centered
         ref={instance => {this.modalInstance=instance}}
         title={(
@@ -70,6 +82,7 @@ export default class Modal extends React.PureComponent<Props> {
         )}
         className={cls(clsPrefix, className)} 
         {...otherProps} 
+        onCancel={this.onCancel}
       >
         <ModalBody isFull={isFull}>{children}</ModalBody>
       </AntdModal>
