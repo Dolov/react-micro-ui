@@ -1,0 +1,68 @@
+
+@cls-prefix: micro-modal;
+@title-font-color: white;
+
+:global {
+  .@{cls-prefix} {
+    margin: 0 auto;
+    padding-bottom: 0;
+
+    .ant-modal-body {
+      padding-right: 0;
+    }
+
+    .fullscreen {
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      z-index: 99999;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: #fff;
+      height: 100% !important;
+    }
+    
+    .ant-modal-close {
+      color: @title-font-color;
+      .ant-modal-close-x {
+        transition: 0.3s;
+      }
+      &:hover {
+        color: @title-font-color;
+        .ant-modal-close-x:hover {
+          transform: rotateZ(180deg);
+        }
+      }
+    }
+
+    .ant-modal-header {
+      padding: 0;
+      .title-main {
+        color: @title-font-color;
+        height: 56px;
+        padding: 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .full-screen-icon-wrapper {
+          margin-right: 32px;
+          width: 56px;
+          height: 56px;
+          white-space: nowrap;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: .3s;
+          &:hover {
+            font-size: 28px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
