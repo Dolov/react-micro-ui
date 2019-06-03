@@ -17,12 +17,19 @@ interface Props {
   onCancel: Function;
   title?: any;
   fullable?: boolean;
+  dragable?: boolean;
   headerColor?: string;
   [propsName: string]: any;
 }
 
 
 export default class Modal extends React.PureComponent<Props> {
+
+  static defaultProps = {
+    fullable: true,
+    dragable: true,
+    headerColor: 'linear-gradient(45deg,#328DC0,#4BB6E5)',
+  }
 
   state = {
     isFull: false,
@@ -40,6 +47,7 @@ export default class Modal extends React.PureComponent<Props> {
   setClass = (isFull: boolean) => {
     if (!this.modalInstance) return 
     const modalElement = ReactDOM.findDOMNode(this.modalInstance)
+    if (!modalElement) return 
     const targetElement = modalElement.querySelector(".ant-modal-content")
     if (!targetElement) return 
     if (isFull) {
@@ -62,7 +70,7 @@ export default class Modal extends React.PureComponent<Props> {
 
   render() {
     const { isFull } = this.state
-    const { className, fullable=true, title, headerColor, children, ...otherProps } = this.props
+    const { className, dragable, fullable, title, headerColor, children, ...otherProps } = this.props
     return (
       <AntdModal 
         centered
@@ -73,6 +81,7 @@ export default class Modal extends React.PureComponent<Props> {
             isFull={isFull}
             setFull={this.setFull}
             fullable={fullable} 
+            dragable={dragable}
           >
             {title}
           </Title>

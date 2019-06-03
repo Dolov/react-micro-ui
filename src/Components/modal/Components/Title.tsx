@@ -2,18 +2,18 @@
 import React from 'react'
 import { Icon } from 'antd'
 
-const defaultHeaderBg = 'linear-gradient(45deg,#328DC0,#4BB6E5)'
 
 interface Props {
   isFull: boolean;
   setFull: Function;
   color?: string;
   fullable: boolean;
+  dragable: boolean;
   children: any;
 }
 
 const Title = (props: Props) => {
-  const { isFull, fullable, setFull, children, color=defaultHeaderBg } = props
+  const { isFull, fullable, setFull, children, color } = props
   if (!children) return null
   
   return (
