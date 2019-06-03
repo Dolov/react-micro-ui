@@ -33,6 +33,7 @@ export default class Modal extends React.PureComponent<Props> {
 
   state = {
     isFull: false,
+    transform: null,
   }
 
   setFull = () => {
@@ -63,25 +64,39 @@ export default class Modal extends React.PureComponent<Props> {
     if (isFull) {
       this.setFull()
     }
+    this.setState({
+      transform: null,
+    })
     onCancel()
+  }
+
+  getPos = (disX, disY) => {
+    this.setState({
+      transform: `translate(${disX}px, ${disY}px)`
+    })
   }
 
   modalInstance: any = null
 
   render() {
-    const { isFull } = this.state
+    const { isFull, transform } = this.state
+    console.log(transform)
     const { className, dragable, fullable, title, headerColor, children, ...otherProps } = this.props
     return (
       <AntdModal 
+        // destroyOnClose
+        style={{transform}}
         centered
         ref={instance => {this.modalInstance=instance}}
         title={(
           <Title 
             color={headerColor}
+            getPos={this.getPos}
             isFull={isFull}
             setFull={this.setFull}
             fullable={fullable} 
             dragable={dragable}
+            modalInstance={this.modalInstance}
           >
             {title}
           </Title>
