@@ -42,35 +42,14 @@ export default class index extends Component {
         >
           <Content>
             <Body>
-              <h3>该组件基于 antd Modal</h3>
-              <h3>增加了全屏、拖拽、超出滚动、指定 Header 颜色等功能, 默认开启</h3>
-              <h3>全屏: fullable</h3>
-              <h3>拖拽: dragable</h3>
-              <h3>拖拽: dragable</h3>
-              <h3>拖拽: dragable</h3>
-              <h3>拖拽: dragable</h3>
-              <h3>拖拽: dragable</h3>
-              <h3>拖拽: dragable</h3>
-              <h3>拖拽: dragable</h3>
-              <h3>拖拽: dragable</h3>
-              <h3>拖拽: dragable</h3>
-              <h3>拖拽: dragable</h3>
-              <h3>拖拽: dragable</h3>
-              <h3>拖拽: dragable</h3>
-              <h3>拖拽: dragable</h3>
-              <h3>拖拽: dragable</h3>
-              <h3>拖拽: dragable</h3>
-              <h3>拖拽: dragable</h3>
-              <h3>拖拽: dragable</h3>
-              <h3>拖拽: dragable</h3>
-              <h3>拖拽: dragable</h3>
-              <h3>拖拽: dragable</h3>
-              <h3>拖拽: dragable</h3>
-              <h3>拖拽: dragable</h3>
-              <h3>拖拽: dragable</h3>
-              <h3>拖拽: dragable</h3>
-              <h3>拖拽: dragable</h3>
-              <h3>拖拽: dragable</h3>
+              <div>该组件基于 antd Modal 做了部分扩展</div>
+              <div>增加了全屏放大、拖拽、超出滚动、按钮与组件不分离、 指定 Header 颜色等功能</div>
+              <div>其中全屏放大、拖拽、超出滚动 <b>默认开启</b></div>
+
+              <div>头部颜色: headerColor</div>
+              <div>全屏: fullable</div>
+              <div>拖拽: dragable   , 拖拽事件设置在头部，如果 title=null 同样不可拖拽</div>
+              
             </Body>
             <Footer>
               <Button>取消</Button>
