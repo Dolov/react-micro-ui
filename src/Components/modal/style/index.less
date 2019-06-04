@@ -8,11 +8,13 @@
     padding-bottom: 0;
 
     .ant-modal-body {
-      padding-right: 0;
+      padding: 0;
     }
 
     .body-main {
-      padding-right: 24px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
     }
 
     .fullscreen {
@@ -24,7 +26,6 @@
       right: 0;
       bottom: 0;
       left: 0;
-      background-color: #fff;
       height: 100% !important;
     }
     
@@ -70,6 +71,27 @@
         }
       }
     }
+
+
+
+
+
+
+
+    .custom-footer {
+      
+      min-height: 56px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      border-top: 1px solid #e8e8e8;
+      padding: 0 16px;
+      > button {
+        margin-left: 8px;
+      }
+    }
+
+    
   }
 }
 

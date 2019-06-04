@@ -4,9 +4,7 @@ import { Modal as AntdModal } from 'antd'
 import cls from 'classnames'
 import ModalBody from './Components/ModalBody'
 import Title from './Components/Title'
-
-
-
+import Footer from './Components/Footer'
 
 const clsPrefix = 'micro-modal'
 
@@ -21,8 +19,9 @@ interface Props {
   [propsName: string]: any;
 }
 
-
 export default class Modal extends React.PureComponent<Props> {
+
+  static Footer = Footer
 
   static defaultProps = {
     fullable: true,
@@ -35,7 +34,7 @@ export default class Modal extends React.PureComponent<Props> {
     transform: null,
   }
 
-  setFull = () => {
+  setFullScreen = () => {
     const { isFull } = this.state
     this.setState({
       isFull: !isFull,
@@ -61,7 +60,7 @@ export default class Modal extends React.PureComponent<Props> {
     const { onCancel } = this.props
     const { isFull } = this.state
     if (isFull) {
-      this.setFull()
+      this.setFullScreen()
     }
     this.setState({
       transform: null,
@@ -87,11 +86,10 @@ export default class Modal extends React.PureComponent<Props> {
   render() {
     const { isFull, transform } = this.state
     const trans = isFull? null: transform
-    const { className, dragable, fullable, title, headerColor, children, ...otherProps } = this.props
+    const { style, footer, className, dragable, fullable, title, headerColor, children, ...otherProps } = this.props
     return (
       <AntdModal 
-        // destroyOnClose
-        style={{transform:trans}}
+        style={{...style,transform:trans}}
         centered
         ref={instance => {this.modalInstance=instance}}
         title={(
@@ -100,18 +98,19 @@ export default class Modal extends React.PureComponent<Props> {
             color={headerColor}
             getPos={this.getPos}
             isFull={isFull}
-            setFull={this.setFull}
             fullable={fullable} 
             dragable={dragable}
+            setFullScreen={this.setFullScreen}
           >
             {title}
           </Title>
         )}
         className={cls(clsPrefix, className)} 
         {...otherProps} 
+        footer={footer!=='custom'&&footer}
         onCancel={this.onCancel}
       >
-        <ModalBody isFull={isFull}>{children}</ModalBody>
+        <ModalBody footer={footer} isFull={isFull}>{children}</ModalBody>
       </AntdModal>
     )
   }

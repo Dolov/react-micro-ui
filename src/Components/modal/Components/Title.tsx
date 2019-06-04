@@ -7,13 +7,14 @@ import { Icon } from 'antd'
 interface Props {
   getPos: Function;
   isFull: boolean;
-  setFull: Function;
   color?: string;
   fullable: boolean;
   dragable: boolean;
   children: any;
+  setFullScreen: Function;
 }
 
+const safeReserve = 16
 export default class Title extends React.PureComponent<Props> {
 
   state = {
@@ -76,10 +77,10 @@ export default class Title extends React.PureComponent<Props> {
   }
 
   calcBoundary(x: number, y: number): boolean {
-    const boundaryTop: number = 0
-    const boundaryLeft: number = 0
-    const boundaryRight: number = innerWidth
-    const boundaryBottom: number = innerHeight
+    const boundaryTop: number = safeReserve
+    const boundaryLeft: number = safeReserve
+    const boundaryRight: number = innerWidth - safeReserve
+    const boundaryBottom: number = innerHeight - safeReserve
     if (
       x > boundaryLeft &&
       x < boundaryRight &&
@@ -93,7 +94,7 @@ export default class Title extends React.PureComponent<Props> {
 
   render() {
     const { moving } = this.state
-    const { isFull, fullable, setFull, children, color } = this.props
+    const { isFull, fullable, setFullScreen, children, color } = this.props
     if (!children) return null
     return (
       <div 
@@ -103,7 +104,7 @@ export default class Title extends React.PureComponent<Props> {
       >
         <div>{children}</div>
         {fullable&&(
-          <div className="full-screen-icon-wrapper" onClick={setFull}>
+          <div className="full-screen-icon-wrapper" onClick={setFullScreen}>
             {isFull?<Icon type="fullscreen-exit" />:<Icon type="fullscreen" />}
           </div>
         )}

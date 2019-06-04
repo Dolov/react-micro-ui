@@ -3,10 +3,10 @@
 import React from 'react'
 
 const offset = 64
-const paddingWidth = 48
 
 interface Props {
   isFull: boolean;
+  footer: any;
 }
 
 export default class ModalBody extends React.PureComponent<Props> {
@@ -40,9 +40,9 @@ export default class ModalBody extends React.PureComponent<Props> {
     }
     const { isFull } = this.props
     if (isFull) {
-      height = `${height} - ${nextSiblingHeight + previousSiblingHeight + paddingWidth}px`
+      height = `${height} - ${nextSiblingHeight + previousSiblingHeight}px`
     } else {
-      height = `${height} - ${nextSiblingHeight + previousSiblingHeight + paddingWidth + offset}px`
+      height = `${height} - ${nextSiblingHeight + previousSiblingHeight + offset}px`
     }
     const { height: prevHeight } = this.state
     if (prevHeight === height) return
@@ -51,11 +51,9 @@ export default class ModalBody extends React.PureComponent<Props> {
     })
   }
 
-  element: any = null
-
-  render() {
+  getStyle() {
     const { height } = this.state
-    const { children, isFull } = this.props
+    const { isFull } = this.props
     const style: {
       overflow: string;
       height?: string;
@@ -66,6 +64,21 @@ export default class ModalBody extends React.PureComponent<Props> {
     } else {
       style.maxHeight = `calc(${height})`
     }
+    return style
+  }
+
+  filterCustomFooter() {
+    const { footer, children } = this.props
+    console.log(children, 'children')
+    if (footer) return 
+  }
+
+  element: any = null
+
+  render() {
+    const { children } = this.props
+    const style = this.getStyle()
+    this.filterCustomFooter()
     return (
       <div 
         ref={ele => {this.element=ele}} 
