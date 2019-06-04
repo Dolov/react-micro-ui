@@ -7,6 +7,7 @@ const offset = 64
 
 interface Props {
   isFull: boolean;
+  footer: any;
 }
 
 export default class ModalBody extends React.PureComponent<Props> {

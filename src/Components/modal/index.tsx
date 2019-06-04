@@ -118,7 +118,7 @@ export default class Modal extends React.PureComponent<Props> {
         footer={footer!=='nopart'&&footer}
         onCancel={this.onCancel}
       >
-        <ModalBody isFull={isFull}>{children}</ModalBody>
+        <ModalBody footer={footer} isFull={isFull}>{children}</ModalBody>
       </AntdModal>
     )
   }
