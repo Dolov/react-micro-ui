@@ -72,26 +72,30 @@
       }
     }
 
-
-
-
-
-
-
-    .custom-footer {
-      
-      min-height: 56px;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      border-top: 1px solid #e8e8e8;
-      padding: 0 16px;
-      > button {
-        margin-left: 8px;
-      }
+    .body-main-nopart {
+      padding: 0;
     }
 
-    
+    .footerNopart-content {
+      display: flex;
+      flex-direction: column;
+      .footerNopart-body {
+        flex: 1;
+        overflow: auto;
+        padding: 24px;
+      }
+      .footerNopart-footer {
+        min-height: 56px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        border-top: 1px solid #e8e8e8;
+        padding: 0 16px;
+        > button {
+          margin-left: 8px;
+        }
+      }
+    }
   }
 }
 

@@ -4,7 +4,11 @@ import { Modal as AntdModal } from 'antd'
 import cls from 'classnames'
 import ModalBody from './Components/ModalBody'
 import Title from './Components/Title'
-import Footer from './Components/Footer'
+import { 
+  FooterNopartBody,
+  FooterNopartFooter,
+  FooterNopartContent,
+} from './Components/Wrapper'
 
 const clsPrefix = 'micro-modal'
 
@@ -21,7 +25,11 @@ interface Props {
 
 export default class Modal extends React.PureComponent<Props> {
 
-  static Footer = Footer
+  static Body = FooterNopartBody
+
+  static Footer = FooterNopartFooter
+
+  static Content = FooterNopartContent
 
   static defaultProps = {
     fullable: true,
@@ -107,7 +115,7 @@ export default class Modal extends React.PureComponent<Props> {
         )}
         className={cls(clsPrefix, className)} 
         {...otherProps} 
-        footer={footer!=='custom'&&footer}
+        footer={footer!=='nopart'&&footer}
         onCancel={this.onCancel}
       >
         <ModalBody footer={footer} isFull={isFull}>{children}</ModalBody>
