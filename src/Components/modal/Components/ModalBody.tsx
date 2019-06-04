@@ -6,7 +6,6 @@ const offset = 64
 
 interface Props {
   isFull: boolean;
-  footer: any;
 }
 
 export default class ModalBody extends React.PureComponent<Props> {
@@ -67,18 +66,11 @@ export default class ModalBody extends React.PureComponent<Props> {
     return style
   }
 
-  filterCustomFooter() {
-    const { footer, children } = this.props
-    console.log(children, 'children')
-    if (footer) return 
-  }
-
   element: any = null
 
   render() {
     const { children } = this.props
     const style = this.getStyle()
-    this.filterCustomFooter()
     return (
       <div 
         ref={ele => {this.element=ele}} 
