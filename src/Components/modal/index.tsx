@@ -4,7 +4,6 @@ import { Modal as AntdModal } from 'antd'
 import cls from 'classnames'
 import ModalBody from './Components/ModalBody'
 import Title from './Components/Title'
-import { fail } from 'assert';
 
 
 
@@ -41,11 +40,11 @@ export default class Modal extends React.PureComponent<Props> {
     this.setState({
       isFull: !isFull,
     }, () => {
-      this.setClass(!isFull)
+      this.setFullScreenClass(!isFull)
     })
   }
 
-  setClass = (isFull: boolean) => {
+  setFullScreenClass = (isFull: boolean) => {
     if (!this.modalInstance) return 
     const modalElement = ReactDOM.findDOMNode(this.modalInstance)
     if (!modalElement) return 
@@ -67,36 +66,43 @@ export default class Modal extends React.PureComponent<Props> {
     this.setState({
       transform: null,
     })
+    this.titleInstance.lastDisX = 0
+    this.titleInstance.lastDisY = 0
     onCancel()
   }
 
-  getPos = (disX, disY) => {
+  getPos = (
+    translate: {translateX: number, translateY: number}
+    ) => {
+    const { translateX, translateY } = translate
     this.setState({
-      transform: `translate(${disX}px, ${disY}px)`
+      transform: `translate(${translateX}px, ${translateY}px)`,
     })
   }
+
+  titleInstance: any = null
 
   modalInstance: any = null
 
   render() {
     const { isFull, transform } = this.state
-    console.log(transform)
+    const trans = isFull? null: transform
     const { className, dragable, fullable, title, headerColor, children, ...otherProps } = this.props
     return (
       <AntdModal 
         // destroyOnClose
-        style={{transform}}
+        style={{transform:trans}}
         centered
         ref={instance => {this.modalInstance=instance}}
         title={(
           <Title 
+            ref={instance => {this.titleInstance=instance}}
             color={headerColor}
             getPos={this.getPos}
             isFull={isFull}
             setFull={this.setFull}
             fullable={fullable} 
             dragable={dragable}
-            modalInstance={this.modalInstance}
           >
             {title}
           </Title>
