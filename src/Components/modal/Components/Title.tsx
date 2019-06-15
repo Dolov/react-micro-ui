@@ -101,6 +101,7 @@ export default class Title extends React.PureComponent<Props> {
         style={{background:color}} 
         className={cls("title-main",{moving})}
         onMouseDown={this.onMouseDown}
+        onDoubleClick={setFullScreen}
       >
         <div>{children}</div>
         {fullable&&(
