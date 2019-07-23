@@ -7,11 +7,12 @@ import Content from '@/Components/content'
 import '@/Components/content/style'
 import S from './index.less'
 
-
+console.log('BasicLayout')
 const BasicLayout: React.FC = props => {
   const { location: {pathname}, route: {routes} } = props
   const { useContent } = routes.find(route => route.path === pathname)
   const children = useContent ? <Content>{props.children}</Content>: props.children
+  
   return (
     <div className={S.wrapper}>
       <h1 className={S.title}>

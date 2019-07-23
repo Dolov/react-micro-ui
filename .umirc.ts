@@ -45,6 +45,7 @@ const config: IConfig =  {
         { path: '/imagetotext', name: 'ImageToText', useContent: true, component: './ImageToText' },
         { path: '/suctionheader', name: 'SuctionHeader', useContent: false, component: './SuctionHeader' },
         { path: '/rotatewrapper', name: 'RotateWrapper', useContent: true, component: './RotateWrapper' },
+        { path: '/htmlpreview', name: 'HtmlPreview', useContent: true, component: './HtmlPreview' },
         
       ]
     },
